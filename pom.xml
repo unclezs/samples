@@ -11,6 +11,24 @@
     <modules>
         <module>samples-jcommander</module>
     </modules>
+    <developers>
+        <developer>
+            <name>Unclezs</name>
+            <email>1585503310@qq.com</email>
+            <url>https://github.com/unclezs</url>
+        </developer>
+    </developers>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+    </properties>
 
+    <repositories>
+        <repository>
+            <id>alibaba</id>
+            <url>https://maven.aliyun.com/repository/central</url>
+        </repository>
+    </repositories>
 
 </project>
