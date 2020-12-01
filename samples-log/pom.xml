@@ -12,9 +12,15 @@
     <artifactId>samples-log</artifactId>
     <packaging>pom</packaging>
     <modules>
-        <module>log-log4j</module>
-        <module>log-logback</module>
+        <module>log-logging-log4j2</module>
+        <module>log-slf4j-logback</module>
     </modules>
 
-
+    <dependencies>
+        <dependency>
+            <groupId>org.fusesource.jansi</groupId>
+            <artifactId>jansi</artifactId>
+            <version>1.18</version>
+        </dependency>
+    </dependencies>
 </project>
