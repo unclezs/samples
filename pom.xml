@@ -10,6 +10,8 @@
     <version>1.0</version>
     <modules>
         <module>samples-jcommander</module>
+        <module>samples-shiro</module>
+        <module>samples-log</module>
     </modules>
     <developers>
         <developer>
@@ -22,6 +24,8 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        <comomos.logging.version>1.2</comomos.logging.version>
+        <junit.version>4.13.1</junit.version>
     </properties>
 
     <repositories>
@@ -30,5 +34,21 @@
             <url>https://maven.aliyun.com/repository/central</url>
         </repository>
     </repositories>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>commons-logging</groupId>
+                <artifactId>commons-logging</artifactId>
+                <version>${comomos.logging.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>${junit.version}</version>
+                <scope>test</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
 </project>
