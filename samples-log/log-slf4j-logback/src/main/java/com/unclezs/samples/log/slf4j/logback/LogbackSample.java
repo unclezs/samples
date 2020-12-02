@@ -1,5 +1,7 @@
 package com.unclezs.samples.log.slf4j.logback;
 
+import ch.qos.logback.core.status.StatusManager;
+import ch.qos.logback.core.util.StatusPrinter;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

@@ -2,6 +2,7 @@ package com.unclezs.samples.log.slf4j.logback;
 
 import ch.qos.logback.classic.LoggerContext;
 import ch.qos.logback.core.util.StatusPrinter;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
@@ -10,6 +11,8 @@ import org.slf4j.LoggerFactory;
  */
 public class LogBackContextSample {
     public static void main(String[] args) {
+        Logger logger = LoggerFactory.getLogger(LogBackContextSample.class);
+        logger.info("internal info");
         // print internal state
         LoggerContext lc = (LoggerContext) LoggerFactory.getILoggerFactory();
         StatusPrinter.print(lc);
