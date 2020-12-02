@@ -1,0 +1,5 @@
+2020-12-03 01:01:59 [main] INFO  com.unclezs.samples.log.slf4j.logback.LogbackSample - log by Logback
+2020-12-03 01:01:59 [main] WARN  com.unclezs.samples.log.slf4j.logback.LogbackSample - log by Logback
+2020-12-03 01:01:59 [main] ERROR com.unclezs.samples.log.slf4j.logback.LogbackSample - log by Logback
+2020-12-03 01:01:59 [main] DEBUG com.unclezs.samples.log.slf4j.logback.LogbackSample - log by Logback
+2020-12-03 01:01:59 [main] TRACE com.unclezs.samples.log.slf4j.logback.LogbackSample - log by Logback

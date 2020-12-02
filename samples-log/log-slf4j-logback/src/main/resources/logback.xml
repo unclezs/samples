@@ -1,17 +1,25 @@
-<configuration debug="false" scan="true" scanPeriod="1 seconds">
+<configuration debug="false" scan="true" scanPeriod="1 seconds" packagingData="true">
     <!--logback启动状态监控 也可以debug=true-->
     <statusListener class="com.unclezs.samples.log.slf4j.logback.StatusListenerSample"/>
+    <shutdownHook/>
     <property name="highlightPattern"
               value="%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger) - %cyan(%msg%n)"/>
     <property name="pattern"
               value="%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n"/>
-
+    <!--高亮控制台输出-->
     <appender name="STDOUT_HIGHLIGHT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>${highlightPattern}</pattern>
+            <pattern>%v: ${highlightPattern}</pattern>
         </encoder>
     </appender>
-
+    <!--保存到文件-->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>myApp.log</file>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+    <!--不高亮控制台输出-->
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>${pattern}</pattern>
@@ -19,10 +27,11 @@
     </appender>
 
     <logger name="com.unclezs.samples.log.slf4j.logback" level="trace" additivity="false">
-        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="STDOUT_HIGHLIGHT"/>
+        <appender-ref ref="FILE"/>
     </logger>
 
-    <root level="trace">
+    <root level="off">
         <appender-ref ref="STDOUT_HIGHLIGHT"/>
     </root>
 </configuration>
