@@ -1,22 +1,29 @@
-<configuration debug="false" scan="true" scanPeriod="1 seconds" packagingData="true">
+<!--
+    debug 开启配置加载状态信息打印
+    scan：检测日志被修改后重新加载
+    scanPeriod：配置修改重新加载扫描周期，取值可以看ch.qos.logback.core.util.Duration.valueOf()
+    packagingData：是否开启对于异常日志显示每个栈信息是在哪个jar包和版本
+-->
+<configuration debug="true" scan="true" scanPeriod="1 seconds" packagingData="true">
     <!--logback启动状态监控 也可以debug=true-->
-    <statusListener class="com.unclezs.samples.log.slf4j.logback.StatusListenerSample"/>
-    <shutdownHook/>
+<!--    <statusListener class="com.unclezs.samples.log.slf4j.logback.OnConsoleStatusListener"/>-->
+    <!--当前时间-->
+    <timestamp key="today" datePattern="yyyy-MM-dd"/>
+    <!--关闭时退出日志框架-->
+    <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
+
+
+    <!--一些本地变量-->
     <property name="highlightPattern"
               value="%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger) - %cyan(%msg%n)"/>
     <property name="pattern"
               value="%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger - %msg%n"/>
+
+
     <!--高亮控制台输出-->
     <appender name="STDOUT_HIGHLIGHT" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder>
-            <pattern>%v: ${highlightPattern}</pattern>
-        </encoder>
-    </appender>
-    <!--保存到文件-->
-    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
-        <file>myApp.log</file>
-        <encoder>
-            <pattern>${pattern}</pattern>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${highlightPattern}</pattern>
         </encoder>
     </appender>
     <!--不高亮控制台输出-->
@@ -25,10 +32,69 @@
             <pattern>${pattern}</pattern>
         </encoder>
     </appender>
+    <!--保存到文件-->
+    <appender name="FILE" class="ch.qos.logback.core.FileAppender">
+        <file>access-${today}.log</file>
+        <append>true</append>
+        <immediateFlush>true</immediateFlush>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
+    <!--滚动保存日志到文件-->
+    <appender name="ROLLING_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>access-rollings-${today}.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>%d{yyyy-MM-dd,aux}/%d{yyyy-MM-dd_HH-mm}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>3GB</totalSizeCap>
+            <cleanHistoryOnStart>false</cleanHistoryOnStart>
+        </rollingPolicy>
+    </appender>
+    <appender name="ROLLING_FILE_SIZE_TIME" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>access-rolling-${today}.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <!--aux代表省略，不当匹配周期-->
+            <fileNamePattern>%d{yyyy-MM-dd,aux}/%d{yyyy-MM-dd_HH-mm}.%i.gzip</fileNamePattern>
+            <maxFileSize>100MB</maxFileSize>
+            <maxHistory>30</maxHistory>
+            <totalSizeCap>3GB</totalSizeCap>
+            <cleanHistoryOnStart>false</cleanHistoryOnStart>
+        </rollingPolicy>
+    </appender>
+    <appender name="FILE_INDEX" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>test.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>tests.%i.log.zip</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>3</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>1KB</maxFileSize>
+        </triggeringPolicy>
+        <encoder>
+            <pattern>${pattern}</pattern>
+        </encoder>
+    </appender>
 
-    <logger name="com.unclezs.samples.log.slf4j.logback" level="trace" additivity="false">
-        <appender-ref ref="STDOUT_HIGHLIGHT"/>
-        <appender-ref ref="FILE"/>
+<appender name="MY_APPENDER" class="com.unclezs.samples.log.slf4j.logback.appender.MyAppender">
+    <limit>2</limit>
+    <encoder>
+        <pattern>${highlightPattern}</pattern>
+    </encoder>
+</appender>
+
+    <logger name="com.unclezs.samples.log.slf4j.logback" level="info" additivity="false">
+<!--        <appender-ref ref="STDOUT_HIGHLIGHT"/>-->
+        <appender-ref ref="MY_APPENDER"/>
     </logger>
 
     <root level="off">
