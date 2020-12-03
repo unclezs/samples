@@ -10,7 +10,7 @@ import org.slf4j.LoggerFactory;
 public class MyAppenderSample {
   public static void main(String[] args) {
     Logger logger = LoggerFactory.getLogger(MyAppenderSample.class);
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 5; i++) {
       logger.info("第{}次", i);
     }
   }

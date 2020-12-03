@@ -30,7 +30,7 @@
 
     <repositories>
         <repository>
-            <id>alibaba</id>
+            <id>maven</id>
             <url>https://maven.aliyun.com/repository/central</url>
         </repository>
     </repositories>

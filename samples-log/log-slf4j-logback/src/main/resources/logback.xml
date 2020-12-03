@@ -4,14 +4,13 @@
     scanPeriod：配置修改重新加载扫描周期，取值可以看ch.qos.logback.core.util.Duration.valueOf()
     packagingData：是否开启对于异常日志显示每个栈信息是在哪个jar包和版本
 -->
-<configuration debug="true" scan="true" scanPeriod="1 seconds" packagingData="true">
+<configuration debug="false" scan="false" scanPeriod="1 seconds" packagingData="true">
     <!--logback启动状态监控 也可以debug=true-->
-<!--    <statusListener class="com.unclezs.samples.log.slf4j.logback.OnConsoleStatusListener"/>-->
+    <!--    <statusListener class="com.unclezs.samples.log.slf4j.logback.OnConsoleStatusListener"/>-->
     <!--当前时间-->
     <timestamp key="today" datePattern="yyyy-MM-dd"/>
     <!--关闭时退出日志框架-->
     <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
-
 
     <!--一些本地变量-->
     <property name="highlightPattern"
@@ -24,6 +23,8 @@
     <appender name="STDOUT_HIGHLIGHT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>${highlightPattern}</pattern>
+            <outputPatternAsHeader>true</outputPatternAsHeader>
+            <immediateFlush>true</immediateFlush>
         </encoder>
     </appender>
     <!--不高亮控制台输出-->
@@ -85,16 +86,16 @@
         </encoder>
     </appender>
 
-<appender name="MY_APPENDER" class="com.unclezs.samples.log.slf4j.logback.appender.MyAppender">
-    <limit>2</limit>
-    <encoder>
-        <pattern>${highlightPattern}</pattern>
-    </encoder>
-</appender>
+    <appender name="MY_APPENDER" class="com.unclezs.samples.log.slf4j.logback.appender.MyAppender">
+        <limit>2</limit>
+        <encoder>
+            <pattern>${highlightPattern}</pattern>
+        </encoder>
+    </appender>
 
     <logger name="com.unclezs.samples.log.slf4j.logback" level="info" additivity="false">
-<!--        <appender-ref ref="STDOUT_HIGHLIGHT"/>-->
-        <appender-ref ref="MY_APPENDER"/>
+        <appender-ref ref="STDOUT_HIGHLIGHT"/>
+        <!--        <appender-ref ref="MY_APPENDER"/>-->
     </logger>
 
     <root level="off">
