@@ -11,7 +11,7 @@ import org.junit.Test;
 
 
 /**
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/01 16:22
  */
 public class LoginAndOutTest {

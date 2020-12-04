@@ -6,7 +6,7 @@ import org.slf4j.LoggerFactory;
 import java.util.concurrent.locks.LockSupport;
 
 /**
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/02 19:54
  */
 public class ScanConfigModifySample {

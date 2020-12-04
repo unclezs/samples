@@ -10,7 +10,7 @@ import com.beust.jcommander.Parameter;
  *
  * java -cp program.jar com.unclezs.jcommander.PasswordSample 不回显密码
  *
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/11/30 19:22
  */
 public class PasswordAndEchoSample {

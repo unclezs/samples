@@ -4,7 +4,7 @@ import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 
 /**
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/11/30 19:20
  */
 public class IntegerSample {

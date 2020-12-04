@@ -4,7 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/02 16:59
  */
 public class LevelSample {

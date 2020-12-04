@@ -1,4 +1,4 @@
-<configuration>
+<configuration debug="false">
     <property name="highlightPattern"
               value="%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger) - %cyan(%msg%n)"/>
     <property name="pattern"
@@ -16,8 +16,8 @@
         </encoder>
     </appender>
 
-    <logger name="com.unclezs.samples.log.slf4j.logback.level.LevelSample" level="trace">
-        <appender-ref ref="STDOUT"/>
+    <logger name="com.unclezs.samples.log.slf4j.logback" level="trace" additivity="false">
+        <appender-ref ref="STDOUT_HIGHLIGHT"/>
     </logger>
 
     <root level="error">

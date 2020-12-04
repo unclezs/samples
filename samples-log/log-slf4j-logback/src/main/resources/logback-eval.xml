@@ -5,8 +5,11 @@
     packagingData：是否开启对于异常日志显示每个栈信息是在哪个jar包和版本
 -->
 <configuration debug="false" scan="false" scanPeriod="1 second" packagingData="false">
+    <evaluator name="isError">
+        <expression>message.contains("different")</expression>
+    </evaluator>
     <property name="pattern"
-              value="%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger) - %cyan(%msg%n)"/>
+              value=" %-4relative [%thread] %-5level - %msg%n%caller{2, isError}"/>
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>${pattern}</pattern>

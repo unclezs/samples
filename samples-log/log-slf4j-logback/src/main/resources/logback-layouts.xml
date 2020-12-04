@@ -8,10 +8,8 @@
     <property name="pattern"
               value="%red(%d{yyyy-MM-dd HH:mm:ss}) %green([%thread]) %highlight(%-5level) %boldMagenta(%logger) - %cyan(%msg%n)"/>
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-            <pattern>${pattern}</pattern>
-            <!--在头部打印出pattern-->
-            <outputPatternAsHeader>true</outputPatternAsHeader>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="com.unclezs.samples.log.slf4j.logback.layouts.MyLayout"/>
         </encoder>
         <!--立即刷新到流-->
         <immediateFlush>true</immediateFlush>

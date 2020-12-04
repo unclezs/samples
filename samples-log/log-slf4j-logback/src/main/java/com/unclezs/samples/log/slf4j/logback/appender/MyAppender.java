@@ -6,7 +6,7 @@ import ch.qos.logback.core.AppenderBase;
 
 
 /**
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/03 15:02
  */
 public class MyAppender extends AppenderBase<ILoggingEvent> {

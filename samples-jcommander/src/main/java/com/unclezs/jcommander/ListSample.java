@@ -6,7 +6,7 @@ import com.beust.jcommander.Parameter;
 import java.util.List;
 
 /**
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/11/30 19:22
  */
 public class ListSample {

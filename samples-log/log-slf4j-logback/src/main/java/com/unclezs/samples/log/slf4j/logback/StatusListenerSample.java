@@ -4,7 +4,7 @@ import ch.qos.logback.core.status.Status;
 import ch.qos.logback.core.status.StatusListener;
 
 /**
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/02 19:44
  */
 public class StatusListenerSample implements StatusListener {
