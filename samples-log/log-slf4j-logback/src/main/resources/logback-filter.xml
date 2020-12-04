@@ -1,0 +1,28 @@
+<!--
+    debug 开启配置加载状态信息打印
+    scan：检测日志被修改后重新加载
+    scanPeriod：配置修改重新加载扫描周期，取值可以看ch.qos.logback.core.util.Duration.valueOf()
+    packagingData：是否开启对于异常日志显示每个栈信息是在哪个jar包和版本
+-->
+<configuration debug="false" scan="false" scanPeriod="1 second" packagingData="false">
+    <property name="pattern"
+              value="%red(%d{yyyy-MM-dd HH:mm:ss}) -%marker- %green([%thread]) %highlight(%-5level) %boldMagenta(%logger) - %cyan(%msg%n)"/>
+    <turboFilter class="com.unclezs.samples.log.slf4j.logback.filter.CustomTurboFilter">
+        <marker>RD</marker>
+    </turboFilter>
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="com.unclezs.samples.log.slf4j.logback.filter.CustomRegularFilter"/>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>${pattern}</pattern>
+            <!--在头部打印出pattern-->
+            <outputPatternAsHeader>true</outputPatternAsHeader>
+        </encoder>
+        <!--立即刷新到流-->
+        <immediateFlush>true</immediateFlush>
+    </appender>
+    <logger name="com.unclezs.samples.log.slf4j.logback" level="info" additivity="false">
+        <appender-ref ref="console"/>
+    </logger>
+    <root level="off">
+    </root>
+</configuration>
