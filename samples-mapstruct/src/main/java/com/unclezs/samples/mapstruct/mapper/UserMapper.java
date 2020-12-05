@@ -9,7 +9,7 @@ import org.mapstruct.factory.Mappers;
 /**
  * mapstruct dto-model互转
  *
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/05 16:45
  */
 @Mapper

@@ -10,7 +10,7 @@ import java.util.concurrent.locks.LockSupport;
 /**
  * 实际使用的例子
  *
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/05 10:56
  */
 public class LogbackExample {

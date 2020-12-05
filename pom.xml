@@ -13,6 +13,7 @@
         <module>samples-shiro</module>
         <module>samples-log</module>
         <module>samples-mapstruct</module>
+        <module>samples-maven</module>
     </modules>
     <developers>
         <developer>

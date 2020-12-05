@@ -6,7 +6,7 @@ import com.unclezs.samples.mapstruct.model.User;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/05 16:09
  */
 @Slf4j
