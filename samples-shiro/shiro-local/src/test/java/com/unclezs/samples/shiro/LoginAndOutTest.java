@@ -2,7 +2,6 @@ package com.unclezs.samples.shiro;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
-import org.apache.shiro.config.IniSecurityManagerFactory;
 import org.apache.shiro.env.BasicIniEnvironment;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.subject.Subject;
@@ -16,6 +15,7 @@ import org.junit.Test;
  */
 public class LoginAndOutTest {
   @Test
+  @SuppressWarnings("deprecated")
   public void loginTest() {
     BasicIniEnvironment environment = new BasicIniEnvironment("classpath:shiro.ini");
     SecurityManager securityManager = environment.getSecurityManager();
