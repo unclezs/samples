@@ -16,6 +16,51 @@
                 <groupId>com.unclezs</groupId>
                 <artifactId>hello-maven-plugin</artifactId>
                 <version>1.0</version>
+                <configuration>
+                    <name>unclezs</name>
+                    <number>123</number>
+                    <bool>true</bool>
+                    <doubleValue>1.0</doubleValue>
+                    <date>2005-10-06 2:22:55.1 PM</date>
+                    <file>${project.basedir}/pom.xml</file>
+                    <url>https://blog.unclezs.com</url>
+                    <color>GREEN</color>
+                    <array>
+                        <param>value1</param>
+                        <param>value2</param>
+                    </array>
+                    <list>
+                        <param>value1</param>
+                        <param>value2</param>
+                    </list>
+                    <map>
+                        <key1>value1</key1>
+                        <key2>value2</key2>
+                    </map>
+                    <properties>
+                        <property>
+                            <name>propertyName1</name>
+                            <value>propertyValue1</value>
+                        </property>
+                        <property>
+                            <name>propertyName2</name>
+                            <value>propertyValue2</value>
+                        </property>
+                    </properties>
+                    <obj>
+                        <age>12</age>
+                        <name>uncle</name>
+                    </obj>
+                </configuration>
+                <!--这个如果加上mvn compile的时候自动执行-->
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>custom</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
