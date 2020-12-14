@@ -13,7 +13,7 @@ import org.junit.Test;
  * @author blog.unclezs.com
  * @since 2020/12/01 16:22
  */
-public class LoginAndOutTest {
+public class IniConfigTest {
   @Test
   @SuppressWarnings("deprecated")
   public void loginTest() {
@@ -21,6 +21,7 @@ public class LoginAndOutTest {
     SecurityManager securityManager = environment.getSecurityManager();
     SecurityUtils.setSecurityManager(securityManager);
     Subject subject = SecurityUtils.getSubject();
+    subject.isPermitted("123");
     subject.login(new UsernamePasswordToken("uncle", "123"));
     Assert.assertTrue(subject.isAuthenticated());
     subject.logout();
