@@ -38,8 +38,6 @@ public class CustomTokenRealm extends AuthorizingRealm {
     if (!"uncle".equals(token)) {
       throw new AuthenticationException("认证失败");
     }
-    getName();
-    log.error("666:{}",getName());
     return new SimpleAuthenticationInfo(token, token, getName());
   }
 }

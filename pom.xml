@@ -14,6 +14,7 @@
         <module>samples-log</module>
         <module>samples-mapstruct</module>
         <module>samples-maven</module>
+        <module>samples-java</module>
     </modules>
     <developers>
         <developer>
