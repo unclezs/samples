@@ -1,5 +1,6 @@
 package com.unclezs.samples.shiro;
 
+import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.mgt.DefaultSecurityManager;
@@ -14,6 +15,7 @@ import org.junit.Test;
  * @author zhanghongguo@sensorsdata.cn
  * @since 2020/12/14 11:38
  */
+@Slf4j
 public class ShiroTest {
   @Before
   public void init() {
@@ -29,5 +31,10 @@ public class ShiroTest {
     UsernamePasswordToken token = new UsernamePasswordToken("uncle", "123");
     subject.login(token);
     Assert.assertTrue(subject.isAuthenticated());
+  }
+
+  @Test
+  public void testCodec() {
+
   }
 }

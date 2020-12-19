@@ -3,6 +3,7 @@ package com.unclezs.samples.shiro;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.env.BasicIniEnvironment;
+import org.apache.shiro.env.DefaultEnvironment;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.subject.Subject;
 import org.junit.Assert;
