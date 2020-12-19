@@ -1,5 +1,6 @@
 package com.unclezs.samples.shiro.local.realm;
 
+import com.unclezs.samples.shiro.local.authc.CustomAuthenticationToken;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -9,6 +10,7 @@ import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.apache.shiro.util.ByteSource;
 
 /**
  * @author zhanghongguo@sensorsdata.cn
@@ -17,9 +19,15 @@ import org.apache.shiro.subject.PrincipalCollection;
 @Slf4j
 public class CustomTokenRealm extends AuthorizingRealm {
 
+  /**
+   * 只支持CustomAuthenticationToken
+   *
+   * @param token jwt token
+   * @return /
+   */
   @Override
   public boolean supports(AuthenticationToken token) {
-    return true;
+    return token instanceof CustomAuthenticationToken;
   }
 
   @Override
@@ -32,12 +40,17 @@ public class CustomTokenRealm extends AuthorizingRealm {
   }
 
   @Override
-  protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken)
-      throws AuthenticationException {
-    String token = authenticationToken.getPrincipal().toString();
+  protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) {
+    CustomAuthenticationToken customAuthenticationToken = (CustomAuthenticationToken) authenticationToken;
+    String token = customAuthenticationToken.getUsername();
     if (!"uncle".equals(token)) {
-      throw new AuthenticationException("认证失败");
+      log.error("用户不存在：{}", token);
+      throw new AuthenticationException("用户不存在");
     }
-    return new SimpleAuthenticationInfo(token, token, getName());
+    // 模拟盐为salt
+    return new SimpleAuthenticationInfo(customAuthenticationToken.getUsername(),
+        customAuthenticationToken.getPassword(), ByteSource.Util.bytes("salt"),
+        getName());
   }
+
 }

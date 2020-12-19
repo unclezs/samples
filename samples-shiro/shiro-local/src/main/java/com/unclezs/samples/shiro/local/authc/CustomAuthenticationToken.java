@@ -1,7 +1,6 @@
 package com.unclezs.samples.shiro.local.authc;
 
-import org.apache.shiro.authc.AuthenticationToken;
-import org.apache.shiro.authc.RememberMeAuthenticationToken;
+import org.apache.shiro.authc.UsernamePasswordToken;
 
 /**
  * 自定义token
@@ -9,28 +8,11 @@ import org.apache.shiro.authc.RememberMeAuthenticationToken;
  * @author zhanghongguo@sensorsdata.cn
  * @since 2020/12/14 11:34
  */
-public class CustomAuthenticationToken implements RememberMeAuthenticationToken, AuthenticationToken {
-  /**
-   * 认证token 假设是jwt
-   */
-  private String token;
+public class CustomAuthenticationToken extends UsernamePasswordToken {
+  //do something
 
-  public CustomAuthenticationToken(String token) {
-    this.token = token;
-  }
 
-  @Override
-  public boolean isRememberMe() {
-    return false;
-  }
-
-  @Override
-  public Object getPrincipal() {
-    return token;
-  }
-
-  @Override
-  public Object getCredentials() {
-    return token;
+  public CustomAuthenticationToken(String username, String password) {
+    super(username, password);
   }
 }

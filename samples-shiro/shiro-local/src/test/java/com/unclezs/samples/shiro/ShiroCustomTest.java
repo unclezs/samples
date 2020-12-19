@@ -1,6 +1,5 @@
 package com.unclezs.samples.shiro;
 
-import com.unclezs.samples.shiro.local.authc.CustomAuthenticationToken;
 import com.unclezs.samples.shiro.local.realm.CustomTokenRealm;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.mgt.DefaultSecurityManager;
@@ -20,10 +19,4 @@ public class ShiroCustomTest {
     SecurityUtils.setSecurityManager(securityManager);
   }
 
-  @Test
-  public void test() {
-    Subject subject = SecurityUtils.getSubject();
-    CustomAuthenticationToken token = new CustomAuthenticationToken("uncle");
-    subject.login(token);
-  }
 }
