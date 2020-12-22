@@ -15,6 +15,7 @@
         <module>samples-mapstruct</module>
         <module>samples-maven</module>
         <module>samples-java</module>
+        <module>samples-http</module>
     </modules>
     <developers>
         <developer>
