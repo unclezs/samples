@@ -16,6 +16,7 @@
         <module>samples-maven</module>
         <module>samples-java</module>
         <module>samples-poi</module>
+        <module>samples-http</module>
     </modules>
     <developers>
         <developer>
