@@ -6,7 +6,7 @@ import org.apache.shiro.crypto.hash.Md5Hash;
 /**
  * Shiro 的加密解密工具
  *
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/19 14:27
  */
 @Slf4j

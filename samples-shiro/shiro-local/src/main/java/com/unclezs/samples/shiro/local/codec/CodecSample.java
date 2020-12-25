@@ -7,7 +7,7 @@ import org.apache.shiro.codec.Hex;
 
 /**
  * Shiro 提供的编码工具
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/19 14:24
  */
 @Slf4j

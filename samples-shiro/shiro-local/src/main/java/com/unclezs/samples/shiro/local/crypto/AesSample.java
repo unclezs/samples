@@ -9,7 +9,7 @@ import java.security.Key;
 /**
  * Shiro 对称加密算法
  *
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/19 17:04
  */
 @Slf4j

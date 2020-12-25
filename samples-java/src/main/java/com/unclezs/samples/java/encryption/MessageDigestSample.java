@@ -9,7 +9,7 @@ import java.security.NoSuchAlgorithmException;
 /**
  * Java的摘要算法
  *
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/19 14:48
  */
 @Slf4j

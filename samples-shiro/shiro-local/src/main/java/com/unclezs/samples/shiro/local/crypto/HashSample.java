@@ -10,7 +10,7 @@ import org.apache.shiro.util.ByteSource;
 /**
  * Shiro 支持的hash算法
  *
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/19 14:35
  */
 @Slf4j

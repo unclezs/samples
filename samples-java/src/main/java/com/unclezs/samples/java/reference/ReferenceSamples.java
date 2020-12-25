@@ -14,7 +14,7 @@ import java.util.Arrays;
  * <p>
  * 指定VM参数 -Xms20m -Xmx20m -XX:+PrintGCDetails -verbose:gc
  *
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/17 13:56
  */
 @Slf4j

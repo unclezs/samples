@@ -3,7 +3,7 @@ package com.unclezs.samples.java.thread.threadlocal;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/17 16:54
  */
 @Slf4j

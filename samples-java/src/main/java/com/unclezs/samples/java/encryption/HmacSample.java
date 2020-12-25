@@ -14,7 +14,7 @@ import javax.crypto.spec.SecretKeySpec;
  * HmacSha256算法加密
  * https://blog.csdn.net/sdnyqfyqf/article/details/105534376
  *
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/19 16:33
  */
 @Slf4j

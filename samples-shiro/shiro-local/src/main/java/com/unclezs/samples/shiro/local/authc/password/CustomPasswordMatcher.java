@@ -8,7 +8,7 @@ import org.apache.shiro.authc.credential.CredentialsMatcher;
 import org.apache.shiro.codec.CodecSupport;
 
 /**
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/19 17:32
  */
 @Slf4j

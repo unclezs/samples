@@ -15,11 +15,12 @@
         <module>samples-mapstruct</module>
         <module>samples-maven</module>
         <module>samples-java</module>
+        <module>samples-poi</module>
     </modules>
     <developers>
         <developer>
             <name>Unclezs</name>
-            <email>1585503310@qq.com</email>
+            <email>blog.unclezs.com</email>
             <url>https://github.com/unclezs</url>
         </developer>
     </developers>

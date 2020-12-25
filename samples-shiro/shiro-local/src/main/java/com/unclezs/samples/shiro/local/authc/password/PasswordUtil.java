@@ -4,7 +4,7 @@ import lombok.experimental.UtilityClass;
 import org.apache.shiro.crypto.hash.Md5Hash;
 
 /**
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2020/12/19 17:35
  */
 @UtilityClass
