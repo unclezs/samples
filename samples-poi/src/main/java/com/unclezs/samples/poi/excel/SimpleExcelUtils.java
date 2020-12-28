@@ -21,15 +21,15 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * 随着 1.17 版本上线，事件设计模板校验、批量更新、批量创建角色等功能
- * 对 excel 依赖越来越多，于是实现该统一 excel 读写工具
+ * excel 读写工具
  *
- * @author zhouenze@sensorsdata.cn
- * @since 2020-03-09
+ * @author blog.unclezs.com
+ * @since 2020/12/25 17:59
  */
 
 public class SimpleExcelUtils {
   private static final List<String> NONLICET_EXCEL_CELL_STARTCHAR = Arrays.asList("=", "+", "-", "@");
+
   SimpleExcelUtils() {
   }
 
