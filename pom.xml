@@ -17,6 +17,7 @@
         <module>samples-java</module>
         <module>samples-poi</module>
         <module>samples-http</module>
+        <module>simples-aspectj</module>
     </modules>
     <developers>
         <developer>
