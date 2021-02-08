@@ -1,7 +1,7 @@
 package com.uncles.aspectj;
 
 /**
- * @author zhanghongguo@sensorsdata.cn
+ * @author blog.unclezs.com
  * @since 2021/02/08 12:16
  */
 public class AspectjTest {

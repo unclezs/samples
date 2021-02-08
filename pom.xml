@@ -18,6 +18,7 @@
         <module>samples-poi</module>
         <module>samples-http</module>
         <module>simples-aspectj</module>
+        <module>samples-datafx</module>
     </modules>
     <developers>
         <developer>
