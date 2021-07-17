@@ -19,6 +19,8 @@
         <module>samples-http</module>
         <module>simples-aspectj</module>
         <module>samples-datafx</module>
+        <module>samples-test</module>
+        <module>samples-sse</module>
     </modules>
     <developers>
         <developer>
