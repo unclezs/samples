@@ -12,7 +12,7 @@ import java.util.Map;
  * @date 2021/07/17
  */
 @Service
-public class SseEmitterManager implements SseService {
+public class SseServiceImpl implements SseService {
   private static final Map<String, SseEmitter> SSE_EMITTERS = new HashMap<>();
 
   public SseEmitter registerSseEmitter(String id) {
@@ -37,5 +37,4 @@ public class SseEmitterManager implements SseService {
       e.printStackTrace();
     }
   }
-
 }

@@ -31,6 +31,7 @@ public class SseServer implements ApplicationContextAware {
 
   @GetMapping(value = "/sse/{id}", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
   public ResponseEntity<SseEmitter> sseServer(@PathVariable(value = "id") String id) {
+    // 防止nginx缓存请求
     HttpHeaders httpHeaders = new HttpHeaders();
     httpHeaders.set("X-Accel-Buffering", "no");
     httpHeaders.setCacheControl(CacheControl.noCache());
@@ -45,6 +46,7 @@ public class SseServer implements ApplicationContextAware {
     new Thread(() -> {
       while (true) {
         try {
+          // 模拟推送消息
           context.getBean(SseService.class).sendMessage("123", String.format("sse消息：【%s】", DateUtil.now()));
           Thread.sleep(5000);
         } catch (InterruptedException e) {

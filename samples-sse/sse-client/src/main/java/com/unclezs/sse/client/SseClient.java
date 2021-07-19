@@ -5,7 +5,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 /**
- * @author hyd
+ * @author blog.unclezs.com
+ * @date 2021/07/17
  */
 public class SseClient {
 
