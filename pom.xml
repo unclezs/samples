@@ -21,6 +21,8 @@
         <module>samples-datafx</module>
         <module>samples-test</module>
         <module>samples-sse</module>
+        <module>samples-kafka</module>
+        <module>samples-kafka/kafka-quickstart</module>
     </modules>
     <developers>
         <developer>
