@@ -1,5 +1,10 @@
 package com.unclezs.kafka.controller;
 
+import lombok.AllArgsConstructor;
+import org.apache.kafka.clients.producer.ProducerRecord;
+import org.springframework.kafka.core.KafkaTemplate;
+import org.springframework.kafka.support.SendResult;
+import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,10 +15,18 @@ import org.springframework.web.bind.annotation.RestController;
  */
 @RequestMapping
 @RestController
+@AllArgsConstructor
 public class AppController {
+  private final KafkaTemplate<String, String> template;
 
   @GetMapping("hello")
   public String hello() {
     return "hello";
+  }
+
+  @GetMapping("send")
+  public String send(String topic, String message) {
+    template.send(topic, message);
+    return message;
   }
 }

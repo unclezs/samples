@@ -3,6 +3,7 @@ package com.unclezs.kafka;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.producer.ProducerConfig;
 
 import java.time.Duration;
 import java.util.Arrays;
@@ -16,7 +17,7 @@ import java.util.Properties;
 public class KafkaConsumerClient {
   public static void main(String[] args) {
     Properties props = new Properties();
-    props.setProperty("bootstrap.servers", "localhost:9092");
+    props.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092");
     props.setProperty("group.id", "test");
     props.setProperty("enable.auto.commit", "true");
     props.setProperty("auto.commit.interval.ms", "1000");
