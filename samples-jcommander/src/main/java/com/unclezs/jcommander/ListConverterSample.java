@@ -17,25 +17,25 @@ import java.util.List;
  */
 public class ListConverterSample {
 
-    @Parameter(names = {"-files", "-f"}, description = "file path", listConverter = CustomListConverter.class)
-    private List<String> list;
+  @Parameter(names = {"-files", "-f"}, description = "file path", listConverter = CustomListConverter.class)
+  private List<String> list;
 
-    public static void main(String... argv) {
-        ListConverterSample target = new ListConverterSample();
-        String[] args = {"-f", "1", "-f", "2"};
-        JCommander.newBuilder()
-                .verbose(1)
-                .addObject(target)
-                .build()
-                .parse(args);
-        System.out.println("arr:" + target.list);
+  public static void main(String... argv) {
+    ListConverterSample target = new ListConverterSample();
+    String[] args = {"-f", "1", "-f", "2"};
+    JCommander.newBuilder()
+        .verbose(1)
+        .addObject(target)
+        .build()
+        .parse(args);
+    System.out.println("arr:" + target.list);
+  }
+
+  static class CustomListConverter implements IStringConverter<List<String>> {
+
+    @Override
+    public List<String> convert(String value) {
+      return Arrays.asList(value.split(","));
     }
-
-    static class CustomListConverter implements IStringConverter<List<String>> {
-
-        @Override
-        public List<String> convert(String value) {
-            return Arrays.asList(value.split(","));
-        }
-    }
+  }
 }

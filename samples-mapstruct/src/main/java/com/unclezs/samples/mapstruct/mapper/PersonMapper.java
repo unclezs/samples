@@ -20,12 +20,12 @@ public interface PersonMapper {
   @Mapping(source = "name", target = "cname")
   PersonDto personToPersonDto(Person user);
 
-  @Mapping(source = "user",target = "guest")
-  @Mapping(source = "name",target = "cname")
+  @Mapping(source = "user", target = "guest")
+  @Mapping(source = "name", target = "cname")
   PersonDto personToPersonDtoNested(Person person);
 
-  @Mapping(source = "user.name",target = "userName")
-  @Mapping(source = "user.age",target = "userAge")
-  @Mapping(source = "name",target = "cname")
+  @Mapping(source = "user.name", target = "userName")
+  @Mapping(source = "user.age", target = "userAge")
+  @Mapping(source = "name", target = "cname")
   PersonVo personToPersonVoNestedProperty(Person person);
 }

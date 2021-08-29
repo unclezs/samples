@@ -14,6 +14,6 @@ public class FilterSample {
     Logger logger = LoggerFactory.getLogger(FilterSample.class);
     logger.info("different log");
     logger.info("same log");
-    logger.error("error msg",new RuntimeException("error"));
+    logger.error("error msg", new RuntimeException("error"));
   }
 }

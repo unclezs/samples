@@ -11,16 +11,16 @@ import org.apache.logging.log4j.ThreadContext;
  * @date 2020/12/2 12:40 上午
  */
 public class LookUpSample {
-    public static void main(String[] args) {
-        String outStr = "lookup Test";
-        // $${ctx:userId}
-        ThreadContext.put("userId", "uncle");
-        // $${date:MM-dd-yyyy}
-        Logger logger = LogManager.getLogger(LookUpSample.class);
-        logger.trace(outStr);
-        logger.debug(outStr);
-        logger.info(outStr);
-        logger.warn(outStr);
-        logger.error(outStr);
-    }
+  public static void main(String[] args) {
+    String outStr = "lookup Test";
+    // $${ctx:userId}
+    ThreadContext.put("userId", "uncle");
+    // $${date:MM-dd-yyyy}
+    Logger logger = LogManager.getLogger(LookUpSample.class);
+    logger.trace(outStr);
+    logger.debug(outStr);
+    logger.info(outStr);
+    logger.warn(outStr);
+    logger.error(outStr);
+  }
 }

@@ -14,7 +14,7 @@ public class ListSample {
   private List<String> hosts;
 
   public static void main(String... argv) {
-    String[] args = {"-host","127.0.0.1","-host","127.0.0.2"};
+    String[] args = {"-host", "127.0.0.1", "-host", "127.0.0.2"};
     ListSample main = new ListSample();
     JCommander.newBuilder()
         .verbose(1)

@@ -10,6 +10,6 @@ import ch.qos.logback.core.status.StatusListener;
 public class StatusListenerSample implements StatusListener {
   @Override
   public void addStatusEvent(Status status) {
-    System.out.println("init: "+status);
+    System.out.println("init: " + status);
   }
 }

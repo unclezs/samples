@@ -5,7 +5,6 @@ import ch.qos.logback.classic.LoggerContext;
 import com.unclezs.samples.log.slf4j.logback.utils.LoggerHelper;
 
 import java.time.LocalDateTime;
-import java.util.concurrent.locks.LockSupport;
 
 /**
  * 实际使用的例子

@@ -4,28 +4,31 @@
         <!--自定义一些常量，之后使用${变量名}引用-->
         <Property name="logFilePath">/Users/uncle/tmp/log/</Property>
         <Property name="logFileName">test.log</Property>
-        <Property name="patternByHighlight">%style{%d{yyyy-MM-dd HH:mm:ss.SSS}}{black} [%highlight{%thread}] %highlight{%-5level} %style{%C}{bright,Magenta} - %style{%msg}{bright,Green}%n</Property>
+        <Property name="patternByHighlight">%style{%d{yyyy-MM-dd HH:mm:ss.SSS}}{black} [%highlight{%thread}]
+            %highlight{%-5level} %style{%C}{bright,Magenta} - %style{%msg}{bright,Green}%n
+        </Property>
     </Properties>
     <Appenders>
         <Console name="console" target="SYSTEM_OUT">
-            <PatternLayout pattern="${patternByHighlight}" />
+            <PatternLayout pattern="${patternByHighlight}"/>
         </Console>
         <File name="file" fileName="${logFilePath}/%level.log">
-            <PatternLayout pattern="${patternByHighlight}" />
+            <PatternLayout pattern="${patternByHighlight}"/>
         </File>
-        <RollingFile name="Rolling-${map:type}" fileName="${logFileName}" filePattern="${logFilePath}/${date:MM-dd-yyyy}.%i.log.gz">
-            <PatternLayout pattern="${patternByHighlight}" />
-            <SizeBasedTriggeringPolicy size="500" />
+        <RollingFile name="Rolling-${map:type}" fileName="${logFileName}"
+                     filePattern="${logFilePath}/${date:MM-dd-yyyy}.%i.log.gz">
+            <PatternLayout pattern="${patternByHighlight}"/>
+            <SizeBasedTriggeringPolicy size="500"/>
         </RollingFile>
     </Appenders>
 
     <Loggers>
         <Root level="trace">
-            <AppenderRef ref="console" />
-            <AppenderRef ref="file" />
+            <AppenderRef ref="console"/>
+            <AppenderRef ref="file"/>
         </Root>
-<!--        <Logger name="com.unclezs" level="info" additivity="false">-->
-<!--            <AppenderRef ref="Console" />-->
-<!--        </Logger>-->
+        <!--        <Logger name="com.unclezs" level="info" additivity="false">-->
+        <!--            <AppenderRef ref="Console" />-->
+        <!--        </Logger>-->
     </Loggers>
 </Configuration>

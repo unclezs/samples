@@ -15,21 +15,21 @@ import javax.annotation.PostConstruct;
  */
 @FXMLController("/tutorial1.fxml")
 public class SimpleController {
-    @FXML
-    private Label resultLabel;
-    @FXML
-    @ActionTrigger("myAction")
-    private Button actionButton;
-    private int clickCount = 0;
+  @FXML
+  private Label resultLabel;
+  @FXML
+  @ActionTrigger("myAction")
+  private Button actionButton;
+  private int clickCount = 0;
 
-    @PostConstruct
-    public void init() {
-        resultLabel.setText("Button was clicked " + clickCount + " times");
-    }
+  @PostConstruct
+  public void init() {
+    resultLabel.setText("Button was clicked " + clickCount + " times");
+  }
 
-    @ActionMethod("myAction")
-    public void onAction() {
-        clickCount++;
-        resultLabel.setText("Button was clicked " + clickCount + " times");
-    }
+  @ActionMethod("myAction")
+  public void onAction() {
+    clickCount++;
+    resultLabel.setText("Button was clicked " + clickCount + " times");
+  }
 }

@@ -20,5 +20,5 @@ public interface UserMapper {
 
   UserDto userDto2User(User user);
 
-  void updateUserFromDto(@MappingTarget User user,UserDto userDto);
+  void updateUserFromDto(@MappingTarget User user, UserDto userDto);
 }

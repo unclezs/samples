@@ -15,12 +15,12 @@ public class InheritableThreadLocalSample {
     Thread parent = new Thread(() -> {
       threadLocal.set("uncle");
       inheritableThreadLocal.set("uncle");
-      log.info("父线程的值：threadLocal:{},inheritableThreadLocal:{}", threadLocal.get(),inheritableThreadLocal.get());
+      log.info("父线程的值：threadLocal:{},inheritableThreadLocal:{}", threadLocal.get(), inheritableThreadLocal.get());
       Thread child = new Thread(() -> {
-        log.info("父线程的值：threadLocal:{},inheritableThreadLocal:{}", threadLocal.get(),inheritableThreadLocal.get());
-      },"child thread");
+        log.info("父线程的值：threadLocal:{},inheritableThreadLocal:{}", threadLocal.get(), inheritableThreadLocal.get());
+      }, "child thread");
       child.start();
-    },"parent thread");
+    }, "parent thread");
     parent.start();
   }
 

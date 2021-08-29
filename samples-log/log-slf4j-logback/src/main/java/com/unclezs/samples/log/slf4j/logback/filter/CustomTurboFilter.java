@@ -11,11 +11,11 @@ import org.slf4j.Marker;
  * @date 2020/12/4 10:32 下午
  */
 public class CustomTurboFilter extends TurboFilter {
-    @Override
-    public FilterReply decide(Marker marker, Logger logger, Level level, String format, Object[] params, Throwable t) {
-        if (t == null) {
-            return FilterReply.DENY;
-        }
-        return FilterReply.ACCEPT;
+  @Override
+  public FilterReply decide(Marker marker, Logger logger, Level level, String format, Object[] params, Throwable t) {
+    if (t == null) {
+      return FilterReply.DENY;
     }
+    return FilterReply.ACCEPT;
+  }
 }

@@ -26,7 +26,7 @@ public class LoggerHelper {
       JoranConfigurator configurator = new JoranConfigurator();
       configurator.setContext(context);
       context.reset();
-      if (configInClasspath != null &&!configInClasspath.isEmpty()) {
+      if (configInClasspath != null && !configInClasspath.isEmpty()) {
         configurator.doConfigure(LoggerHelper.class.getResource("/" + configInClasspath));
       }
     } catch (JoranException ignored) {

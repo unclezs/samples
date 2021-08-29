@@ -4,9 +4,7 @@ import com.unclezs.samples.shiro.local.realm.CustomTokenRealm;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.mgt.SecurityManager;
-import org.apache.shiro.subject.Subject;
 import org.junit.Before;
-import org.junit.Test;
 
 /**
  * @author blog.unclezs.com

@@ -6,7 +6,7 @@
 -->
 <configuration debug="false" scan="false" scanPeriod="1 second" packagingData="false">
     <conversionRule conversionWord="nowTime"
-                    converterClass="com.unclezs.samples.log.slf4j.logback.converter.CustomNowTimeConverter" />
+                    converterClass="com.unclezs.samples.log.slf4j.logback.converter.CustomNowTimeConverter"/>
     <property name="pattern"
               value="%nowTime - %cyan(%msg%n)"/>
     <appender name="console" class="ch.qos.logback.core.ConsoleAppender">

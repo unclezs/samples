@@ -11,7 +11,7 @@ import ch.qos.logback.core.LayoutBase;
 public class MyLayout extends LayoutBase<ILoggingEvent> {
   @Override
   public String doLayout(ILoggingEvent event) {
-    return "自定义布局器："+ (event.getTimeStamp() - event.getLoggerContextVO().getBirthTime())
+    return "自定义布局器：" + (event.getTimeStamp() - event.getLoggerContextVO().getBirthTime())
         + " "
         + event.getLevel()
         + " ["

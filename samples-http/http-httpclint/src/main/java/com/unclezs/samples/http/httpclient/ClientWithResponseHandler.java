@@ -18,35 +18,35 @@ import java.io.IOException;
  * @date 2020/12/20 5:39 下午
  */
 public class ClientWithResponseHandler {
-    public static void main(final String[] args) throws Exception {
-        try (final CloseableHttpClient httpclient = HttpClients.createDefault()) {
-            final HttpGet httpget = new HttpGet("http://httpbin.org/get");
+  public static void main(final String[] args) throws Exception {
+    try (final CloseableHttpClient httpclient = HttpClients.createDefault()) {
+      final HttpGet httpget = new HttpGet("http://httpbin.org/get");
 
-            System.out.println("Executing request " + httpget.getMethod() + " " + httpget.getUri());
+      System.out.println("Executing request " + httpget.getMethod() + " " + httpget.getUri());
 
-            // Create a custom response handler
-            final HttpClientResponseHandler<String> responseHandler = new HttpClientResponseHandler<String>() {
+      // Create a custom response handler
+      final HttpClientResponseHandler<String> responseHandler = new HttpClientResponseHandler<String>() {
 
-                @Override
-                public String handleResponse(
-                        final ClassicHttpResponse response) throws IOException {
-                    final int status = response.getCode();
-                    if (status >= HttpStatus.SC_SUCCESS && status < HttpStatus.SC_REDIRECTION) {
-                        final HttpEntity entity = response.getEntity();
-                        try {
-                            return entity != null ? EntityUtils.toString(entity) : null;
-                        } catch (final ParseException ex) {
-                            throw new ClientProtocolException(ex);
-                        }
-                    } else {
-                        throw new ClientProtocolException("Unexpected response status: " + status);
-                    }
-                }
-
-            };
-            final String responseBody = httpclient.execute(httpget, responseHandler);
-            System.out.println("----------------------------------------");
-            System.out.println(responseBody);
+        @Override
+        public String handleResponse(
+            final ClassicHttpResponse response) throws IOException {
+          final int status = response.getCode();
+          if (status >= HttpStatus.SC_SUCCESS && status < HttpStatus.SC_REDIRECTION) {
+            final HttpEntity entity = response.getEntity();
+            try {
+              return entity != null ? EntityUtils.toString(entity) : null;
+            } catch (final ParseException ex) {
+              throw new ClientProtocolException(ex);
+            }
+          } else {
+            throw new ClientProtocolException("Unexpected response status: " + status);
+          }
         }
+
+      };
+      final String responseBody = httpclient.execute(httpget, responseHandler);
+      System.out.println("----------------------------------------");
+      System.out.println(responseBody);
     }
+  }
 }

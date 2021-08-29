@@ -11,8 +11,8 @@ import org.apache.maven.plugins.annotations.Mojo;
  */
 @Mojo(name = "custom")
 public class CustomPlugin extends AbstractMojo {
-    @Override
-    public void execute() throws MojoExecutionException, MojoFailureException {
-        getLog().info("hello maven plugin!!!");
-    }
+  @Override
+  public void execute() throws MojoExecutionException, MojoFailureException {
+    getLog().info("hello maven plugin!!!");
+  }
 }

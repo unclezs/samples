@@ -9,12 +9,12 @@ import javafx.stage.Stage;
  * @since 2021/02/08 15:16
  */
 public class Tutorial1Main extends Application {
-    public static void main(String[] args) {
-        launch(args);
-    }
+  public static void main(String[] args) {
+    launch(args);
+  }
 
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        new Flow(SimpleController.class).startInStage(primaryStage);
-    }
+  @Override
+  public void start(Stage primaryStage) throws Exception {
+    new Flow(SimpleController.class).startInStage(primaryStage);
+  }
 }

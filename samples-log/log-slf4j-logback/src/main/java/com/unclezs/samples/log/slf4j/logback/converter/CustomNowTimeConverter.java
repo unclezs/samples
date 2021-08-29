@@ -2,7 +2,6 @@ package com.unclezs.samples.log.slf4j.logback.converter;
 
 import ch.qos.logback.classic.pattern.ClassicConverter;
 import ch.qos.logback.classic.spi.ILoggingEvent;
-import com.unclezs.samples.log.slf4j.logback.utils.LoggerHelper;
 
 /**
  * @author blog.unclezs.com

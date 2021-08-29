@@ -14,6 +14,6 @@ public class MapStructSample {
   public static void main(String[] args) {
     User user = new User("123", "uncle");
     UserDto userDto = UserMapper.INSTANCE.userDto2User(user);
-    log.info("{}",userDto);
+    log.info("{}", userDto);
   }
 }

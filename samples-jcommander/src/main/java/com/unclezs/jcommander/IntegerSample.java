@@ -8,7 +8,7 @@ import com.beust.jcommander.Parameter;
  * @since 2020/11/30 19:20
  */
 public class IntegerSample {
-  @Parameter(names = {"-verbose", "-v"},description = "log level")
+  @Parameter(names = {"-verbose", "-v"}, description = "log level")
   private int verbose;
 
   public static void main(String... argv) {

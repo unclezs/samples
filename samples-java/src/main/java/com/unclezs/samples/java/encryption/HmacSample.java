@@ -20,7 +20,7 @@ import javax.crypto.spec.SecretKeySpec;
 @Slf4j
 public class HmacSample {
   public static void main(String[] args) {
-    log.info("HmacSHA256 加密后：{}",byHmacSha256("salt", "unclezs"));
+    log.info("HmacSHA256 加密后：{}", byHmacSha256("salt", "unclezs"));
   }
 
   private static byte[] byHmacSha256(String salt, String original) {

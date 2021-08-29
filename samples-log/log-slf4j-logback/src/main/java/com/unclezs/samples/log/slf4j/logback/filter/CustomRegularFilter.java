@@ -12,6 +12,6 @@ public class CustomRegularFilter extends Filter<ILoggingEvent> {
 
   @Override
   public FilterReply decide(ILoggingEvent event) {
-    return event.getMessage().contains("different")?FilterReply.DENY:FilterReply.ACCEPT;
+    return event.getMessage().contains("different") ? FilterReply.DENY : FilterReply.ACCEPT;
   }
 }

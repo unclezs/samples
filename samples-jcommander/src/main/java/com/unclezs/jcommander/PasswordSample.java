@@ -3,13 +3,11 @@ package com.unclezs.jcommander;
 import com.beust.jcommander.JCommander;
 import com.beust.jcommander.Parameter;
 
-import java.util.List;
-
 /**
  * 将密码隐藏 密码字段直接输入
- *
+ * <p>
  * idea执行不能凸显隐藏密码的效果，因为终端是被重定向了的
- *
+ * <p>
  * java -cp program.jar com.unclezs.jcommander.PasswordAndEchoSample 回显密码
  *
  * @author blog.unclezs.com

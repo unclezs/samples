@@ -3,8 +3,6 @@ package com.unclezs.samples.log.slf4j.logback;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.util.concurrent.locks.LockSupport;
-
 /**
  * @author blog.unclezs.com
  * @since 2020/12/02 19:54

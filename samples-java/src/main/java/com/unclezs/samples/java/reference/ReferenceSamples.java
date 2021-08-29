@@ -18,7 +18,7 @@ import java.util.Arrays;
  * @since 2020/12/17 13:56
  */
 @Slf4j
-public class ReferenceSamples{
+public class ReferenceSamples {
   private static final int SIZE1MB = 1024 * 1024;
   private static final int SIZE1KB = 1024;
 

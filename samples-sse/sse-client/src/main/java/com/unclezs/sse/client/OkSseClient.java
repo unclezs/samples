@@ -18,9 +18,9 @@ public class OkSseClient {
     // 定义see接口
     Request request = new Request.Builder().url("http://127.0.0.1:8080/sse/123").build();
     OkHttpClient okHttpClient = new OkHttpClient.Builder()
-            .connectTimeout(1, TimeUnit.DAYS)
-            .readTimeout(1, TimeUnit.DAYS)//这边需要将超时显示设置长一点，不然刚连上就断开，之前以为调用方式错误被坑了半天
-            .build();
+        .connectTimeout(1, TimeUnit.DAYS)
+        .readTimeout(1, TimeUnit.DAYS)//这边需要将超时显示设置长一点，不然刚连上就断开，之前以为调用方式错误被坑了半天
+        .build();
 
     // 实例化EventSource，注册EventSource监听器
     RealEventSource realEventSource = new RealEventSource(request, new EventSourceListener() {

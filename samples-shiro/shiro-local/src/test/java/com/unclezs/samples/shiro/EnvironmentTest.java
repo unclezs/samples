@@ -20,10 +20,10 @@ import org.junit.Test;
  */
 @Slf4j
 public class EnvironmentTest {
-  private DefaultEnvironment environment;
-  private Realm realm;
   public static String username = "uncle";
   public static String password = "123";
+  private DefaultEnvironment environment;
+  private Realm realm;
   private DefaultSecurityManager securityManager;
 
   @Before

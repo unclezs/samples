@@ -7,8 +7,8 @@ import org.junit.Test;
  * @date 2020/12/20 5:35 下午
  */
 public class ConnectPoolTest {
-    @Test
-    public void run() {
+  @Test
+  public void run() {
 
-    }
+  }
 }

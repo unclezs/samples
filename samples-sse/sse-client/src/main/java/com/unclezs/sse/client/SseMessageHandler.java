@@ -4,6 +4,6 @@ import java.io.InputStream;
 
 public interface SseMessageHandler {
 
-	void actMsg(InputStream is, String line);
+  void actMsg(InputStream is, String line);
 
 }

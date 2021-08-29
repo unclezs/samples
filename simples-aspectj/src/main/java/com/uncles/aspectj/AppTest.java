@@ -5,7 +5,7 @@ package com.uncles.aspectj;
  * @since 2021/02/08 12:19
  */
 public class AppTest {
-    public static void main(String[] args) {
-        new AspectjTest().requset(123);
-    }
+  public static void main(String[] args) {
+    new AspectjTest().requset(123);
+  }
 }

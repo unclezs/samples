@@ -10,6 +10,6 @@ import javafx.scene.control.Button;
  */
 @FXMLController("/tutorial2/view2.fxml")
 public class View2Controller {
-    @LinkAction(View1Controller.class)
-    public Button button;
+  @LinkAction(View1Controller.class)
+  public Button button;
 }

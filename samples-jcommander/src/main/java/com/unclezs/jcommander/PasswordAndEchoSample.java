@@ -5,16 +5,16 @@ import com.beust.jcommander.Parameter;
 
 /**
  * 将密码隐藏 密码字段直接输入
- *
+ * <p>
  * idea执行不能凸显隐藏密码的效果，因为终端是被重定向了的
- *
+ * <p>
  * java -cp program.jar com.unclezs.jcommander.PasswordSample 不回显密码
  *
  * @author blog.unclezs.com
  * @since 2020/11/30 19:22
  */
 public class PasswordAndEchoSample {
-  @Parameter(names = "-pwd", description = "The password", password = true,echoInput = true)
+  @Parameter(names = "-pwd", description = "The password", password = true, echoInput = true)
   private String password;
 
   public static void main(String... argv) {

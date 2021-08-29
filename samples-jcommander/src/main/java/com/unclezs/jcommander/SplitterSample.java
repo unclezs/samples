@@ -12,24 +12,24 @@ import java.util.List;
  * @date 2020/12/1 12:01 上午
  */
 public class SplitterSample {
-    @Parameter(names = "-l", splitter = SemiColonSplitter.class)
-    private List<String> list;
+  @Parameter(names = "-l", splitter = SemiColonSplitter.class)
+  private List<String> list;
 
-    public static void main(String... argv) {
-        String[] args = {"-l", "1;2;3;4","-l","5"};
-        SplitterSample main = new SplitterSample();
-        JCommander.newBuilder()
-                .verbose(1)
-                .addObject(main)
-                .build()
-                .parse(args);
-        System.out.println("list: " + main.list);
-    }
+  public static void main(String... argv) {
+    String[] args = {"-l", "1;2;3;4", "-l", "5"};
+    SplitterSample main = new SplitterSample();
+    JCommander.newBuilder()
+        .verbose(1)
+        .addObject(main)
+        .build()
+        .parse(args);
+    System.out.println("list: " + main.list);
+  }
 
-    public static class SemiColonSplitter implements IParameterSplitter {
-        @Override
-        public List<String> split(String value) {
-            return Arrays.asList(value.split(";"));
-        }
+  public static class SemiColonSplitter implements IParameterSplitter {
+    @Override
+    public List<String> split(String value) {
+      return Arrays.asList(value.split(";"));
     }
+  }
 }
