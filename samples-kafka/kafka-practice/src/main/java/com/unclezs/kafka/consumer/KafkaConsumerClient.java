@@ -2,6 +2,7 @@ package com.unclezs.kafka.consumer;
 
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.core.util.StrUtil;
+import com.unclezs.kafka.common.BaseKafkaClient;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
@@ -22,18 +23,14 @@ import java.util.Properties;
  */
 @Getter
 @Slf4j
-public class KafkaConsumerClient {
-  private List<KafkaBrokerInfo> brokers = new ArrayList<>();
-  private String topic;
-  private int partition = 0;
+public class KafkaConsumerClient extends BaseKafkaClient {
   private KafkaConsumer<String, String> consumer;
-  private String clientId;
-  private KafkaBrokerInfo leadBroker;
-  private int timeoutMs;
 
-  public static KafkaConsumerClient builder() {
-    return new KafkaConsumerClient();
+  public KafkaConsumerClient(String brokers) {
+    super(brokers);
+    consumer = new KafkaConsumer<>(initConfig(true));
   }
+
 
   /**
    * 获取指定partition最新的offset
@@ -51,27 +48,13 @@ public class KafkaConsumerClient {
     return consumer.position(partition);
   }
 
-  public List<PartitionInfo> getPartitionsInfo() {
+  public List<PartitionInfo> getPartitionsInfo(String topic) {
     return consumer.partitionsFor(topic);
   }
 
-  public KafkaConsumerClient build() {
-    consumer = new KafkaConsumer<>(generateConfig());
-    return this;
-  }
 
-  public KafkaConsumerClient topic(String topic) {
-    this.topic = topic;
-    return this;
-  }
-
-  public KafkaConsumerClient partition(int partition) {
-    this.partition = partition;
-    return this;
-  }
-
-  public String readRecord(long targetOffset) {
-    toOffset(targetOffset);
+  public String readRecord(String topic, int partition, long targetOffset) {
+    toOffset(topic, partition, targetOffset);
     ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(1));
     for (ConsumerRecord<String, String> record : records) {
       long currentOffset = record.offset();
@@ -83,61 +66,18 @@ public class KafkaConsumerClient {
     return null;
   }
 
-  public void printAllRecord(long targetOffset) {
-    toOffset(targetOffset);
+  public void printAllRecord(String topic, int partition, long targetOffset) {
+    toOffset(topic, partition, targetOffset);
     ConsumerRecords<String, String> records = consumer.poll(Duration.ofSeconds(1));
     records.forEach(record -> System.out.println(record.value()));
   }
 
-  private void toOffset(long targetOffset) {
+  private void toOffset(String topic, int partition, long targetOffset) {
     TopicPartition topPartition = new TopicPartition(topic, partition);
     List<TopicPartition> partitions = new ArrayList<>();
     partitions.add(topPartition);
     consumer.assign(partitions);
     consumer.seek(topPartition, targetOffset);
-  }
-
-  /**
-   * todo 去重
-   *
-   * @param host 域名
-   * @param port 端口
-   * @return this
-   */
-  public KafkaConsumerClient broker(String host, int port) {
-    KafkaBrokerInfo brokerInfo = new KafkaBrokerInfo(host, port);
-    brokers.add(brokerInfo);
-    return this;
-  }
-
-  public KafkaConsumerClient clientId(String clientId) {
-    this.clientId = clientId;
-    return this;
-  }
-
-  public KafkaConsumerClient timeoutMs(int timeoutMs) {
-    this.timeoutMs = timeoutMs;
-    return this;
-  }
-
-  private Properties generateConfig() {
-    Properties properties = new Properties();
-    properties.put(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, KafkaBrokerInfo.fromList(brokers));
-    properties.put(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
-        "org.apache.kafka.common.serialization.StringDeserializer");
-    properties.put(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG,
-        "org.apache.kafka.common.serialization.StringDeserializer");
-    if (StrUtil.isEmpty(clientId)) {
-      clientId = RandomUtil.randomNumbers(10);
-    }
-    properties.put("client.id", clientId);
-    properties.put("session.timeout.ms", timeoutMs);
-    properties.put("enable.auto.commit", false);
-    properties.put("max.partition.fetch.bytes", 10 * 1024 * 1024);
-    properties.put("max.poll.records", 10000);
-    // 指定的 offset 无效时，默认直接抛出异常
-    properties.put("auto.offset.reset", "none");
-    return properties;
   }
 
   public void close() {
