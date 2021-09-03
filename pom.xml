@@ -23,6 +23,7 @@
         <module>samples-sse</module>
         <module>samples-kafka</module>
         <module>simples-spring</module>
+        <module>simples-redis</module>
     </modules>
     <developers>
         <developer>
