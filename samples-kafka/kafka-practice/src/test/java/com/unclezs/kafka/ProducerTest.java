@@ -6,15 +6,12 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.kafka.clients.CommonClientConfigs;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.PartitionInfo;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.util.Properties;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.Future;
 
 /**
  * @author blog.unclezs.com
@@ -61,14 +58,11 @@ public class ProducerTest {
    */
   @Test
   public void produceMessageOnNotExistPartition() {
-    Future<RecordMetadata> future =
-        producer.send(new ProducerRecord<>(KafkaConfig.TOPIC_TEST, 3, "key-unclezs", "value-unclezs"));
-    try {
-      RecordMetadata recordMetadata = future.get();
-      System.out.println(recordMetadata);
-    } catch (InterruptedException | ExecutionException e) {
-      e.printStackTrace();
-    }
+    producer.send(new ProducerRecord<>(KafkaConfig.TOPIC_TEST, 3, "key-unclezs", "value-unclezs"),
+        (metadata, exception) -> {
+          System.out.println(metadata);
+          exception.printStackTrace();
+        });
   }
 
   /**
