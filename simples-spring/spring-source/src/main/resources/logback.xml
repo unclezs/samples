@@ -32,7 +32,7 @@
         <immediateFlush>true</immediateFlush>
     </appender>
 
-    <root level="debug">
+    <root level="trace">
         <appender-ref ref="console"/>
     </root>
 </configuration>

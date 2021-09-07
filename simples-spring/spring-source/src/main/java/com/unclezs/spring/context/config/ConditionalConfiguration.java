@@ -1,6 +1,6 @@
-package com.unclezs.spring.config;
+package com.unclezs.spring.context.config;
 
-import com.unclezs.spring.config.condition.DevCondition;
+import com.unclezs.spring.context.config.condition.DevCondition;
 import org.springframework.context.annotation.Conditional;
 
 /**

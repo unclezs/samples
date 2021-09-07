@@ -1,4 +1,4 @@
-package com.unclezs.spring.config;
+package com.unclezs.spring.context.config;
 
 import org.springframework.context.annotation.Configuration;
 

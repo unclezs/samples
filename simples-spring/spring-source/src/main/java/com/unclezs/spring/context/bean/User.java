@@ -1,4 +1,4 @@
-package com.unclezs.spring.bean;
+package com.unclezs.spring.context.bean;
 
 import lombok.Data;
 

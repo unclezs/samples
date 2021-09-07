@@ -1,6 +1,6 @@
-package com.unclezs.spring.config;
+package com.unclezs.spring.context.config;
 
-import com.unclezs.spring.service.AppService;
+import com.unclezs.spring.context.service.AppService;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

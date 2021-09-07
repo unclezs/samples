@@ -1,7 +1,7 @@
-package com.unclezs.spring;
+package com.unclezs.spring.context;
 
-import com.unclezs.spring.config.CommonConfiguration;
-import com.unclezs.spring.service.AppService;
+import com.unclezs.spring.context.config.CommonConfiguration;
+import com.unclezs.spring.context.service.AppService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 /**
