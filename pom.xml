@@ -24,6 +24,7 @@
         <module>samples-kafka</module>
         <module>simples-spring</module>
         <module>simples-redis</module>
+        <module>samples-springcloud</module>
     </modules>
     <developers>
         <developer>

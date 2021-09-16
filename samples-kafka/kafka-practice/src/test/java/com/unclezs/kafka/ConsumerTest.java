@@ -43,4 +43,5 @@ public class ConsumerTest {
             record.value());
     }
   }
+
 }

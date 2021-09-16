@@ -26,7 +26,6 @@ import java.util.List;
  * @author blog.unclezs.com
  * @since 2020/12/25 17:59
  */
-
 public class SimpleExcelUtils {
   private static final List<String> NONLICET_EXCEL_CELL_STARTCHAR = Arrays.asList("=", "+", "-", "@");
 
