@@ -1,6 +1,7 @@
 package com.unclezs.samples.java.collection;
 
 import java.util.HashMap;
+import java.util.StringJoiner;
 
 /**
  * @author blog.unclezs.com
@@ -8,6 +9,9 @@ import java.util.HashMap;
  */
 public class HashMaps {
   public static void main(String[] args) {
-    new HashMap<>(0).put(2, 3);
+    StringJoiner joiner = new StringJoiner("_");
+    joiner.add("123");
+    joiner.add(null);
+    System.out.println(joiner.toString());
   }
 }
