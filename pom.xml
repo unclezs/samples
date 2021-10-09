@@ -3,6 +3,11 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <artifactId>spring-boot-parent</artifactId>
+        <groupId>org.springframework.boot</groupId>
+        <version>2.5.4</version>
+    </parent>
 
     <groupId>com.unclezs</groupId>
     <artifactId>samples</artifactId>
@@ -26,6 +31,7 @@
         <module>simples-redis</module>
         <module>samples-springcloud</module>
         <module>simples-ldap</module>
+        <module>simples-mbean</module>
     </modules>
     <developers>
         <developer>
@@ -94,13 +100,6 @@
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
                 <version>${logback.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-parent</artifactId>
-                <version>2.5.4</version>
-                <type>pom</type>
-                <scope>import</scope>
             </dependency>
         </dependencies>
     </dependencyManagement>
