@@ -32,6 +32,7 @@
         <module>samples-springcloud</module>
         <module>simples-ldap</module>
         <module>simples-mbean</module>
+        <module>samples-zookeeper</module>
     </modules>
     <developers>
         <developer>
