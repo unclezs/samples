@@ -11,6 +11,7 @@ public class InheritableThreadLocalSample {
   private static InheritableThreadLocal<String> inheritableThreadLocal = new InheritableThreadLocal<>();
   private static ThreadLocal<String> threadLocal = new ThreadLocal<>();
 
+  @SuppressWarnings("AlibabaAvoidManuallyCreateThread")
   public static void main(String[] args) {
     Thread parent = new Thread(() -> {
       threadLocal.set("uncle");
