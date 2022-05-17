@@ -33,6 +33,7 @@
         <module>simples-ldap</module>
         <module>simples-mbean</module>
         <module>samples-zookeeper</module>
+        <module>samples-crypto</module>
     </modules>
     <developers>
         <developer>
