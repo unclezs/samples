@@ -1,9 +1,11 @@
 package com.unclezs.samples.crypto.aes;
 
+import cn.hutool.core.codec.Base32;
+import cn.hutool.core.codec.Base64;
+
 import java.nio.charset.StandardCharsets;
 import java.security.GeneralSecurityException;
 import java.security.SecureRandom;
-import java.util.Base64;
 
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
@@ -16,14 +18,15 @@ import javax.crypto.spec.SecretKeySpec;
 public class CBCSample {
   public static void main(String[] args) throws Exception {
     // 原文
-    String message = "Hello, world!";
+    String message = "{\"username\":\"zhangsan\",\"secretKey\":\"2AES7T4TOH57QXUP\"}";
     System.out.println("原文: " + message);
     // 256位密钥 = 32 bytes Key:
     byte[] key = "1234567890abcdef1234567890abcdef".getBytes(StandardCharsets.UTF_8);
     // 加密
     byte[] data = message.getBytes(StandardCharsets.UTF_8);
     byte[] encrypted = encrypt(key, data);
-    System.out.println("密文: " + Base64.getEncoder().encodeToString(encrypted));
+    System.out.println("密文base64: " + Base64.encode(encrypted));
+    System.out.println("密文base32: " + Base32.encode(encrypted));
     // 解密
     byte[] decrypted = decrypt(key, encrypted);
     System.out.println("原文: " + new String(decrypted, StandardCharsets.UTF_8));
