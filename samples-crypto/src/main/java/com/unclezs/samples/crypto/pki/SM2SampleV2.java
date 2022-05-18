@@ -1,4 +1,4 @@
-package com.unclezs.samples.crypto;
+package com.unclezs.samples.crypto.pki;
 
 import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
 import org.bouncycastle.asn1.gm.GMNamedCurves;

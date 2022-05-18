@@ -1,4 +1,4 @@
-package com.unclezs.samples.crypto;
+package com.unclezs.samples.crypto.pki;
 
 import com.sun.org.apache.xerces.internal.impl.dv.util.HexBin;
 import org.bouncycastle.asn1.gm.GMNamedCurves;
@@ -25,6 +25,7 @@ import java.security.PublicKey;
 import java.security.SecureRandom;
 import java.security.Security;
 import java.security.Signature;
+import java.util.Base64;
 
 /**
  * @author blog.unclezs.com
@@ -48,7 +49,7 @@ public class SM2Sample {
     SimpleKeyPair simpleKeyPair = generatePublicKeyAndPrivateKey();
     PrivateKey privateKey = parsePrivateKey(simpleKeyPair.getPrivateKey());
     PublicKey publicKey = parsePublicKey(simpleKeyPair.getPublicKey());
-    String plainData = "mydata";
+    String plainData = "{\"username\":\"zhangsan\",\"secretKey\":\"2AES7T4TOH57QXUP\",\"serialNumber\":\"664\",\"totp\":1}";
     // 签名
     String signed = sign(privateKey, plainData);
     System.out.println("签名: " + signed);
@@ -59,6 +60,7 @@ public class SM2Sample {
     byte[] encrypted = encrypt(simpleKeyPair.getPublicKey(), plainData);
     String encryptedHex = HexBin.encode(encrypted);
     System.out.println("密文：" + encryptedHex);
+    System.out.println("密文base64：" + Base64.getEncoder().encodeToString(encrypted));
     byte[] decrypted = decrypt(simpleKeyPair.getPrivateKey(), encryptedHex);
     System.out.println("原文：" + new String(decrypted));
   }
