@@ -34,6 +34,7 @@
         <module>simples-mbean</module>
         <module>samples-zookeeper</module>
         <module>samples-crypto</module>
+        <module>samples-proto</module>
     </modules>
     <developers>
         <developer>
