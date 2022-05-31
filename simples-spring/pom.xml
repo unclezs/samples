@@ -13,6 +13,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>spring-source</module>
+        <module>spring-aop</module>
     </modules>
 
     <properties>
