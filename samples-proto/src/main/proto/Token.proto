@@ -5,16 +5,29 @@ package com.unclezs.samples.proto;
 option java_multiple_files = true;
 option java_package = "com.unclezs.samples.proto.model";
 
+import "google/protobuf/timestamp.proto";
 
 message Token{
   int32 version = 1;
-  bytes sign = 2;
-  bytes secret_key = 3;
-  bytes data = 4;
+  string sign = 2;
+  string secret_key = 3;
+  repeated Data datas = 4;
+  int32 num = 5;
+  int64 num_long = 6;
+  double num_double = 7;
 }
 
 message Data {
   string username = 1;
   int32 serial_number = 2;
   string url = 3;
+  google.protobuf.Timestamp update_time = 7;
+  DemoEnum demo_type = 8;
+}
+
+enum DemoEnum {
+  DEMO_ENUM_UNSPECIFIED = 0;
+  ONE = 1;
+  URL = 2;
+  THREE_A = 3;
 }
