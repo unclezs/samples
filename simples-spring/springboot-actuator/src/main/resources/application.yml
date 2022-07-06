@@ -1,19 +1,24 @@
 server:
   port: 8080
-
+spring:
+  application:
+    name: 'boot-monitor'
 management:
+  server:
+    port: 8081
   endpoints:
     enabled-by-default: false
     web:
-      base-path: /manage
       exposure:
-        include: 'info,health,env,beans'
+        include: '*'
   endpoint:
-    info:
+    prometheus:
       enabled: true
-    health:
+    metrics:
       enabled: true
-    env:
-      enabled: true
-    beans:
-      enabled: true
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    tags:
+      application: ${spring.application.name}
