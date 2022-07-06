@@ -6,7 +6,7 @@
     <parent>
         <artifactId>spring-boot-parent</artifactId>
         <groupId>org.springframework.boot</groupId>
-        <version>2.5.4</version>
+        <version>2.7.1</version>
     </parent>
 
     <groupId>com.unclezs</groupId>
@@ -23,7 +23,6 @@
         <module>samples-poi</module>
         <module>samples-http</module>
         <module>simples-aspectj</module>
-        <module>samples-datafx</module>
         <module>samples-test</module>
         <module>samples-sse</module>
         <module>samples-kafka</module>
@@ -51,7 +50,7 @@
         <comomos.logging.version>1.2</comomos.logging.version>
         <lombok.version>1.18.20</lombok.version>
         <slf4j.version>1.7.30</slf4j.version>
-        <logback.version>1.2.3</logback.version>
+        <logback.version>1.2.11</logback.version>
         <junit.version>4.13.1</junit.version>
         <maven-compiler-plugin.version>3.8.1</maven-compiler-plugin.version>
         <maven-shade-plugin.version>3.2.4</maven-shade-plugin.version>
