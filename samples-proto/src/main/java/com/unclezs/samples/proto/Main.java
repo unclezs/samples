@@ -1,31 +1,44 @@
 package com.unclezs.samples.proto;
 
-import cn.hutool.crypto.digest.MD5;
-import com.google.protobuf.ByteString;
-import com.google.protobuf.InvalidProtocolBufferException;
+import cn.hutool.core.collection.ListUtil;
+import cn.hutool.core.date.DateUtil;
+import cn.hutool.json.JSONUtil;
+import com.google.protobuf.Timestamp;
+import com.unclezs.samples.proto.mapper.TokenMapper;
 import com.unclezs.samples.proto.model.Data;
+import com.unclezs.samples.proto.model.DemoEnum;
 import com.unclezs.samples.proto.model.Token;
+import com.unclezs.samples.proto.model.TokenDto;
 
-import java.util.Base64;
-
+/**
+ * @author unclezs
+ * @date 2022/6/16 11:10 AM
+ */
 public class Main {
-  public static void main(String[] args) throws InvalidProtocolBufferException {
+  public static void main(String[] args) {
     Data data = Data.newBuilder()
+        .setUsername("zhangsan")
+        .setUrl("https://www.baidu.com")
+        .build();
+    Data data1 = Data.newBuilder()
         .setUsername("zhangsan")
         .setSerialNumber(664)
         .setUrl("https://www.baidu.com")
+        .setDemoType(DemoEnum.ONE)
+        .setUpdateTime(Timestamp.newBuilder().setSeconds(DateUtil.currentSeconds()).build())
         .build();
     Token token = Token.newBuilder()
-        .setData(data.toByteString())
-        .setSecretKey(ByteString.copyFromUtf8("123"))
+        .addAllDatas(ListUtil.of(data, data1))
+        .setSecretKey("123")
         .setVersion(1)
-        .setSign(ByteString.copyFrom(MD5.create().digest(data.toByteArray())))
+        .setSign("222")
         .build();
-    byte[] tokenBytes = token.toByteArray();
-    // base64 编码得到 token
-    String tokenStr = Base64.getEncoder().encodeToString(tokenBytes);
-    // 解析
-    Token theToken = Token.parseFrom(Base64.getDecoder().decode(tokenStr));
-    System.out.println(theToken.getSign());
+
+    TokenDto dto = TokenMapper.ME.map(token);
+    System.out.println(JSONUtil.toJsonPrettyStr(dto));
+
+    dto.setSign(null);
+    Token tToken = TokenMapper.ME.map(dto);
+    System.out.println(tToken);
   }
 }
