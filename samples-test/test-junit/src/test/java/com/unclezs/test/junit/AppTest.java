@@ -14,11 +14,11 @@ public class AppTest {
 
   @Test
   public void test() {
-    try (MockedStatic<SUtils> mockStatic = Mockito.mockStatic(SUtils.class,
-        Mockito.withSettings().defaultAnswer(CALLS_REAL_METHODS))) {
-      mockStatic.when(SUtils::a).thenReturn(12);
-      System.out.println(SUtils.a());
-      System.out.println(SUtils.b());
-    }
+    MockedStatic<SUtils> mockStatic = Mockito.mockStatic(SUtils.class, CALLS_REAL_METHODS);
+    mockStatic.when(SUtils::a).thenReturn(12);
+    System.out.println(SUtils.a());
+    System.out.println(SUtils.b());
+    mockStatic.close();
   }
+
 }
